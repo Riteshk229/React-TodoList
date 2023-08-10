@@ -1,0 +1,63 @@
+nav{
+    width: 100%;
+    position: sticky;
+    background-color: aqua;
+    display: flex;
+    padding: 0 2%;
+    justify-content: space-between;
+    box-shadow: 0px -1px 3px 4px grey;
+}
+
+.navLeft{
+    width: 30%;
+    padding: 10px;
+}
+
+.appTitle{
+    font-size: 30px;
+    width: 100%;
+    height: 100%;
+}
+
+.navRight{
+    width: auto;
+    min-width: 20%;
+    text-align: right;
+    padding-right: 5%;
+}
+
+.navRight ul {
+    margin: 0;
+    padding: 0 ;
+    list-style: none;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.navRight ul li{
+    min-width: 50%;
+    text-align: center;
+}
+
+.LogOut{
+    border: none;
+    border-radius: 20px;
+    width: 100%;
+    height: 70%;
+    font-size: 1.2rem;
+    font-weight: 600;
+    background-color: rgb(250, 74, 42);
+    color: azure;
+}
+.LogIn{
+    border: none;
+    border-radius: 20px;
+    width: 40%;
+    height: 60%;
+    font-size: 1.2rem;
+    font-weight: 600;
+    background-color: rgb(19, 170, 240);
+    color: rgb(2, 37, 37);
+}
