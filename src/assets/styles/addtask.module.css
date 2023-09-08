@@ -1,0 +1,83 @@
+.createTask {
+    width: 100%;
+    height: auto;
+    min-height: 320px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2%;
+}
+
+.taskTitle{
+    padding: 0.5% 1%;
+    height: 25px;
+    width: 25%;
+    margin-top: 1%;
+    border: 2px solid black;
+}
+
+.taskDescription{
+    padding: 0.5% 1%;
+    font-size: 20px;
+    resize: none;
+    height: 88px;
+    width: 555px;
+    margin-top: 1%;
+    border: 2px solid black;
+}
+
+label {
+    font-size: 2rem;
+    margin-top: 1%;
+}
+
+.btn{
+    position: relative;
+    margin: 1%;
+    width: 100px;
+    height: 35px;
+   /* border: 1px solid red; */
+}
+
+.btn button{
+    border: none;
+    box-shadow: 0px 1px 0px 2px lightgray;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-color: burlywood;
+    font-size: 15px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 600;
+    border-radius: 10px;
+}
+
+.btn button:hover {
+   background-color: brown;
+   color: azure;
+}
+
+.options{
+    width: 20%;
+    font-size: 16px;
+    display: flex;
+    justify-content: space-around;
+}
+
+
+
+
+@media only screen and (max-width:900px){
+
+
+    input[type="radio"]{
+        margin-right:-5%;
+    }
+
+    .options{
+        width: 30%;
+    }
+}

@@ -4,3 +4,19 @@
   margin: 0;
   padding: 0;
 }
+
+nav{
+  width: 100%;
+  position: sticky;
+  background-color: aqua;
+  display: flex;
+  padding: 0 2%;
+  justify-content: space-between;
+  box-shadow: 0px -1px 3px 4px grey;
+}
+
+
+.loading{
+  background-color: azure;
+}
+

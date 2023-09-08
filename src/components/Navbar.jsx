@@ -1,14 +1,15 @@
 import { useAuth0 } from '@auth0/auth0-react';
 import styled from '../assets/styles/nav.module.css';
+import { useState } from 'react';
   
 function NavComp() {
-  const { isAuthenticated,loginWithRedirect,logout } = useAuth0();
+  const { isAuthenticated, loginWithRedirect, logout,user } = useAuth0();
   
   return (
     <nav>
       <div className={styled.navLeft}>
         <div className={styled.appTitle}>
-          App name
+          Todo List
         </div>
       </div>
       <div className={styled.navRight}>
@@ -17,7 +18,7 @@ function NavComp() {
               ? (
               <ul>
                 <li>
-                  Welcome User
+                  {user.name}
                 </li>
                   <button
                     className={styled.LogOut}
@@ -35,6 +36,7 @@ function NavComp() {
                   <button
                     className={styled.LogIn}
                     onClick={() => loginWithRedirect()}
+                    
                   >
                     Log In
                   </button>
