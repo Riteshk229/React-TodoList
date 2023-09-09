@@ -1,35 +1,54 @@
 main{
     margin: 0;
-    height: 100%;
-    width: 100%;
+    height: auto;
+    min-height: 100%;
+    width: 96%;
     text-align: center;
+    padding: 4%;
 }
 
-header{
-    margin: 1%;
+.homeScreen{
+    height: 100%;
+    width: 96%;
+    padding: 4%;
+    background-image: url(https://images.pexels.com/photos/1213447/pexels-photo-1213447.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+    background-size: cover;
+}
+
+.homeScreen > header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    padding: 10px;
+    margin: 0;
+    color: white;
     text-align: center;
     font-size: 40px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
 
+header{
+    margin: 1%; 
 }
 
 .Tasks{
     height: auto;
     word-spacing: 5px;
     /* background-color: aqua; */
-    margin-left: 15%;
+    margin-left: 20%;
     width: 60%;
     font-size: 20px;
 }
 
-.Rows{
+tr{
     margin: 5px;
-    border-bottom: 2px solid black;
 }
 
 th{
     padding: 10px;
 }
+
 .Activity{
     min-width: 60%;
     font-size: 1.8rem;
@@ -42,15 +61,35 @@ th{
     font-size: 1.8rem;
 }
 
-tr:hover {background-color: #138df1;}
+tr:hover {
+    background-color: #138df1;
+}
 
 td{
     background-image: linear-gradient(to right, rgba(156, 203, 224, 0.5), rgb(12, 179, 245,0.8));
 }
 
-.TaskDone {
-    text-decoration: line-through;
-    text-decoration-color: #1ad564bd;
-    text-decoration-thickness: 3px;
+.Task {
+    text-align: left;
+    padding: 10px;
   }
+
+.Actions{
+    opacity: 0;
+}
+
+.Rows:hover + .Actions, .Actions:hover{
+    opacity: 1;
+}
+
+.EditInput{
+    width: 90%;
+    height: 55px;
+    margin: 5px;
+    font-size: 20px;
+    border: none;
+    background-color: #e0bc0f5c;
+    color: #1f1d1a;
+    padding: 0px 10px;
+}
 

@@ -1,3 +1,4 @@
+// importing styles
 import "../assets/styles/App.css"
 
 const Loading = () => {
@@ -6,4 +7,5 @@ const Loading = () => {
     );
 }
 
+// exporting components
 export default Loading;

@@ -1,7 +1,8 @@
+/* Create Task Container */
 .createTask {
     width: 100%;
     height: auto;
-    min-height: 320px;
+    min-height: 200px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -9,6 +10,7 @@
     margin-bottom: 2%;
 }
 
+/* Task Title */
 .taskTitle{
     padding: 0.5% 1%;
     height: 25px;
@@ -17,29 +19,21 @@
     border: 2px solid black;
 }
 
-.taskDescription{
-    padding: 0.5% 1%;
-    font-size: 20px;
-    resize: none;
-    height: 88px;
-    width: 555px;
-    margin-top: 1%;
-    border: 2px solid black;
-}
-
+/* Labels  in Create Task conatiner */
 label {
     font-size: 2rem;
     margin-top: 1%;
 }
 
+/* Submit Button */
 .btn{
     position: relative;
     margin: 1%;
     width: 100px;
     height: 35px;
-   /* border: 1px solid red; */
 }
 
+/* Button styles */
 .btn button{
     border: none;
     box-shadow: 0px 1px 0px 2px lightgray;
@@ -55,11 +49,13 @@ label {
     border-radius: 10px;
 }
 
+/* On Hover */
 .btn button:hover {
    background-color: brown;
    color: azure;
 }
 
+/* Radio Buttons Options */
 .options{
     width: 20%;
     font-size: 16px;
@@ -67,17 +63,26 @@ label {
     justify-content: space-around;
 }
 
-
-
-
-@media only screen and (max-width:900px){
-
+/* media querry for screens in between 700px and 1200px */
+@media only screen and (min-width:700px) and (max-width:1200px){
 
     input[type="radio"]{
-        margin-right:-5%;
+        margin-right:-6%;
     }
 
     .options{
         width: 30%;
+    }
+}
+
+/* media querry for screens <= 700px */
+@media only screen and (max-width:700px){
+
+    input[type="radio"]{
+        margin-right:-15%;
+    }
+
+    .options{
+        width: 40%;
     }
 }

@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import '../assets/styles/App.css';
+
+// Importing Styles and Components;
+import '../assets/styles/App.css'; 
 import { Home } from '../pages';
 import NavComp from './Navbar';
-// import Loading from './Loading';
-import { Loading } from './index';
 
 function App() {
 
