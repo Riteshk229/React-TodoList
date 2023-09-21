@@ -10,7 +10,7 @@ This React projects is  made using ViteJS. In this project Data is being provide
 2. Type ``npm run dev`` in the VS code terminal to start the server and run the application.
 3. Click of the link in th terminal or type  ``http://localhost:8080/`` in your browser.
 
-#Tech Stack
+# Tech Stack
 
 **React**,**CSS**,**JavaScript**,**HTML**
 
