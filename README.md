@@ -12,7 +12,7 @@ This React projects is  made using ViteJS. In this project Data is being provide
 
 # Tech Stack
 
-**React**,**CSS**,**JavaScript**,**HTML**
+**React**, **CSS**, **JavaScript**, **HTML**
 
 # Hoisted
 
