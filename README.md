@@ -17,6 +17,9 @@ This React projects is  made using ViteJS. In this project Data is being provide
 # Hoisted
 
 Render : [TodoList-By-Ritesh](https://reacttodolistbyritesh.onrender.com/)
+
 **Logging in is not Auth0 is not working with Render.com which i have used to deploy this project. So, i recommed to install is locally then use the Applicatio.**
+
+Firebase : [TodoList-By-Ritesh](https://todolist-11a31.web.app/)
 
 
