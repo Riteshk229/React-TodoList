@@ -1,5 +1,5 @@
 // importing hooks
-import { useState } from "react";
+import { useEffect, useState } from "react";
 // impoorting Toastify
 import { toast } from "react-toastify"
 // importing icons
@@ -18,8 +18,13 @@ const Task = (props) => {
     const { task, state, setState } = props
     // Variables states
     const [editMode, setEditMode] = useState(false);
-    const [title, setTitle] = useState(task.title);
-    const [status, setStatus] = useState(task.completed);
+    const [title, setTitle] = useState("");
+    const [status, setStatus] = useState("");
+
+    useEffect(() => { 
+        setTitle(task.title);
+        setStatus(task.completed);
+    }, [task]);
 
     // Edited Task object
     const editedTask = {
