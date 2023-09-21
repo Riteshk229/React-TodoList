@@ -5,6 +5,8 @@ This React projects is  made using ViteJS. In this project Data is being provide
 
 ``CRUD`` operations are done through **Axios**.
 
+P.S : Due to the limitation of API created task can't be updated (will fix it later). So, the updation works only for existing data.
+
 # Steps to Run this project
 1. Run ``npm install`` in the VS code terminal to  install all the dependencies.
 2. Type ``npm run dev`` in the VS code terminal to start the server and run the application.
