@@ -1,5 +1,4 @@
-// importing Auth0
-import { useAuth0 } from "@auth0/auth0-react";
+
 // importing hooks
 import { useState } from "react";
 // importing styles
@@ -13,35 +12,15 @@ import { addTask} from "../assets/JS";
 const AddTask = (props) => {
     // De-structuring props
     const { userID, state, setState } = props;
-    // De-structuring useAuth
-    const { user, isAuthenticated } = useAuth0();
-    // Radio button State
-    const [radioSelect, setRadioSelect] = useState();
+
     // Variables State
     const [submit, setSubmiting] = useState(false);
     const [title, setTitle] = useState('');
-    const [status, setStatus] = useState(null);
     // Task object
     const task = {
         title: title,
         userId: userID,
-        completed: status
-    }
-
-    // function to set task completion status
-    const handleStatusSelect = (e) => {
-
-        // if task is completed 
-        if (e.target.value === "Completed") {
-            setRadioSelect(e.target.value);
-            setStatus(true);
-        }
-        
-        // if task is not completed 
-        if(e.target.value === "Not Completed") {
-            setRadioSelect(e.target.value);
-            setStatus(false);
-        }
+        completed: false
     }
 
     // function to handle task Submission
@@ -61,26 +40,6 @@ const AddTask = (props) => {
             
             // reset the variable states and return
             setTitle(" ");
-            setRadioSelect("");
-            setStatus('');
-            return setSubmiting(false);
-        }
-        
-        // Task status should be provided
-        if ( status === null) {
-            // Warning notification Task status is not provided
-            toast.warning("Please fill both details.!!", {
-                position: toast.POSITION.TOP_LEFT,
-                autoClose: 3000,
-                closeOnClick: true,
-                theme: "dark",
-                draggable: false
-            })
-            
-            // reset the variable states and return
-            setTitle(" ");
-            setRadioSelect("");
-            setStatus('');
             return setSubmiting(false);
         }
 
@@ -102,15 +61,12 @@ const AddTask = (props) => {
 
         // reset the variable states and return
         setTitle(" ");
-        setRadioSelect("");
-        setStatus('');
 
         setSubmiting(false);
     }
 
     return (
         <>
-            {isAuthenticated && <h1> Welcome {user.name}</h1>}
             {/* Crate Task container */}
             <div className={styled.createTask}>
                 {/* Task tile */}
@@ -121,25 +77,6 @@ const AddTask = (props) => {
                     value={task.title}
                     onChange={(e)=> setTitle(e.target.value)}
                 />
-                {/* Task Status */}
-                <label htmlFor="status"> Status </label>
-                {/* Radio Options */}
-                <div className={styled.options}>
-                    <input
-                        type="radio"
-                        name="status"
-                        checked={radioSelect === "Completed"}
-                        onChange={handleStatusSelect}
-                        value="Completed"
-                        /> Completed
-                    <input
-                        type="radio"
-                        name="status"
-                        onChange={handleStatusSelect}
-                        checked={radioSelect === "Not Completed"}
-                        value="Not Completed"
-                    /> Not Completed
-                </div>
                 
                 {/* Submit Button */}
                 <div className={styled.btn}>

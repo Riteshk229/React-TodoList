@@ -13,7 +13,10 @@ export const setUserID = () => {
 export const getTasks = async (userID) => {
     return await axios.get(`${API_Root}/users/${userID}/todos`)
         .then((response) => {
-        return response.data
+            return {
+                success: true,
+                data : response.data
+            }
         })
     
     // Fetch API
@@ -29,18 +32,22 @@ export const getTasks = async (userID) => {
 export const addTask = async (task) => {
     return await axios.post(`${API_Root}/todos/`, { ...task })
     .then((response) => {
-        return response.data
-        }
-    )
+        return {
+            success: true,
+            data: response.data
+        }    
+    })
 }
 
 // Updating Task on database using PUT method
 export const updateTask = async (editedtask) => {
     return await axios.put(`${API_Root}/todos/${editedtask.id}`, {...editedtask})
-    .then((response) => {
-        return response.data
-        }
-    )
+        .then((response) => {
+            return {
+                success: true,
+                data: response.data
+            }
+        })
 }
 
 // Deleting task in database using DELETE method

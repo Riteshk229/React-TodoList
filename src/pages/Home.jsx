@@ -1,5 +1,5 @@
-// importing Auth0
-import { useAuth0 } from "@auth0/auth0-react";
+// importing toastify
+import { toast } from "react-toastify"
 // importing Hooks
 import { useEffect, useState } from "react";
 // importing functions
@@ -9,19 +9,30 @@ import styled from"../assets/styles/home.module.css";
 import { AddTask, Loading, Task } from "../components";
 
 const Home = () => {
-    // De-structuring useAuth
-    const { isLoading, isAuthenticated } = useAuth0();
     // To-do List
     const [data, setData] = useState([]);
     // Random User ID
     const [id,setID] = useState(setUserID());
+    // loading
+    const [isLoading,setIsLoading] = useState(true);
     
     // Hooks to load Initial Data
     useEffect(() => {
         // function to get and set to-do list data
         const fetch = async () =>{
             const response = await getTasks(id);
-            setData(response);
+            if (response.success) {
+                setData(response.data);
+            } else {
+                toast.error("Error in  fetching list!", {
+                    position: toast.POSITION.TOP_LEFT,
+                    autoClose: 3000,
+                    closeOnClick: true,
+                    theme: "dark",
+                    draggable: false
+                })
+            }
+            setIsLoading(false);
         };
         // Calling the fecth functioon
         fetch();
@@ -33,53 +44,40 @@ const Home = () => {
     }
     
     return (
-        <>
-            {/* if not Logged in */}
-            {!isAuthenticated && 
-                // Default screen
-                <main className={styled.homeScreen}>
-                    <header>
-                        <h3> Welcome to the TodoList App </h3>
-                        <h1> Please Login To Use the ToDoList !!!</h1>
-                    </header>
+        <> 
+            <main>  
+                {/* Component to add tasks */}
+                <AddTask
+                    userID={id}
+                    state={data}
+                    setState={setData}
+                />
+
+                {/* Table to dispaly the list */}
+                <table className={styled.Tasks}>
+                    <thead>
+                        {/* Table Headings */}
+                        <tr>
+                            <th className={styled.Activity}> Activity </th>
+                            <th className={styled.Status}>Status</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                    {/* Componet to diaplay Tasks in list */}
+                    {data.map((entry, index) => (
+                        <Task
+                            key={index}
+                            task={entry}
+                            state={data}
+                            setState={setData}
+                        />
+                    ))}
+                    </tbody>
+
+                </table>
+
                 </main>
-            }
-                
-            {/* If logged in */}
-            {isAuthenticated &&
-                <main>
-                    {/* Component to add tasks */}
-                    <AddTask
-                        userID={id}
-                        state={data}
-                        setState={setData}
-                    />
-
-                    {/* Table to dispaly the list */}
-                    <table className={styled.Tasks}>
-                        <thead>
-                            {/* Table Headings */}
-                            <tr>
-                                <th className={styled.Activity}> Activity </th>
-                                <th className={styled.Status}>Status</th>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                        {/* Componet to diaplay Tasks in list */}
-                        {data.map((entry, index) => (
-                            <Task
-                                key={index}
-                                task={entry}
-                                state={data}
-                                setState={setData}
-                            />
-                        ))}
-                        </tbody>
-
-                    </table>
-
-                </main>}
         </>
     );
 }

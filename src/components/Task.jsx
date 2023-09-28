@@ -21,6 +21,7 @@ const Task = (props) => {
     const [title, setTitle] = useState("");
     const [status, setStatus] = useState("");
 
+    // reloading the state
     useEffect(() => { 
         setTitle(task.title);
         setStatus(task.completed);
@@ -61,25 +62,39 @@ const Task = (props) => {
     // Function to edit tasks 
     const handleEditSubmit = async () => {
         // Sending data to add task to the Api by PUT method
-        const edited = await updateTask(editedTask);
-        // Creating a new updated state
-        const newState = state.map((entry) => {
-            if (entry.id == task.id) {
-                entry = edited;
-            }
-            return entry
-        })
-        // Updating the state with updated State
-        setState(newState);
+        const response = await updateTask(editedTask);
+        if (response.success) {
+        
+            // Creating a new updated state       
+            const newState = state.map((entry) => {
+                if (entry.id == task.id) {
+                    entry = response.data;
+                }
+                return entry
+            })
 
-        // Succes Notification 
-        toast.success("Task successfully Updated.", {
-            position: toast.POSITION.TOP_LEFT,
-            autoClose: 3000,
-            closeOnClick: true,
-            theme: "dark",
-            draggable: false
-        })
+            // Updating the state with updated State
+            setState(newState);
+
+        
+            // Succes Notification
+            toast.success("Task successfully Updated.", {
+                position: toast.POSITION.TOP_LEFT,
+                autoClose: 3000,
+                closeOnClick: true,
+                theme: "dark",
+                draggable: false
+            })
+
+        } else {    
+            toast.error("Error in Editting task.!", {
+                position: toast.POSITION.TOP_LEFT,
+                autoClose: 3000,
+                closeOnClick: true,
+                theme: "dark",
+                draggable: false
+            })  
+        }
         
         // Exiting Edit Mode
         setEditMode(false);
