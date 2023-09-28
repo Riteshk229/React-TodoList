@@ -21,9 +21,11 @@ const Home = () => {
         // function to get and set to-do list data
         const fetch = async () =>{
             const response = await getTasks(id);
+            // on successfully getting tasks
             if (response.success) {
                 setData(response.data);
             } else {
+                // on error
                 toast.error("Error in  fetching list!", {
                     position: toast.POSITION.TOP_LEFT,
                     autoClose: 3000,

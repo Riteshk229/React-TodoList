@@ -44,20 +44,36 @@ const AddTask = (props) => {
         }
 
         // Create new Task
-        const addedTask = await addTask(task);
-        // Create new list
-        const newState = [addedTask, ...state];
-        // Update state with New List
-        setState(newState);
+        const response = await addTask(task);
 
-        // Success notification on submission
-        toast.success("Task added to the todoList..!!", {
-            position: toast.POSITION.TOP_LEFT,
-            autoClose: 3000,
-            closeOnClick: true,
-            theme: "dark",
-            draggable: false
-        })
+        // on successfully adding task
+        if (response.success) {
+            // Create new list
+            const newState = [response.data, ...state];
+            // Update state with New List
+            setState(newState);
+    
+            // Success notification on submission
+            toast.success("Task added to the todoList..!!", {
+                position: toast.POSITION.TOP_LEFT,
+                autoClose: 3000,
+                closeOnClick: true,
+                theme: "dark",
+                draggable: false
+            })
+            
+        } else {
+            // on error
+            // Error notification on submission
+            toast.error("Error in adding task.!!", {
+                position: toast.POSITION.TOP_LEFT,
+                autoClose: 3000,
+                closeOnClick: true,
+                theme: "dark",
+                draggable: false
+            })
+        }
+
 
         // reset the variable states and return
         setTitle(" ");

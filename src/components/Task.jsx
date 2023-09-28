@@ -87,7 +87,7 @@ const Task = (props) => {
             })
 
         } else {    
-            toast.error("Error in Editting task.!", {
+            toast.error("Error in Editting task.!!", {
                 position: toast.POSITION.TOP_LEFT,
                 autoClose: 3000,
                 closeOnClick: true,
